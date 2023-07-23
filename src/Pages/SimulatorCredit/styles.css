@@ -1,0 +1,169 @@
+div {
+    margin: 1rem;
+}
+
+.h1-simula-tu-credito {
+    font-family: "Jost", Sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 50px;
+    color: #007B45;
+}
+
+.p-simula-tu-credito {
+    color: #00000099;
+    font-family: "Jost", Sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.btn-simular-credit {
+    font-family: "Jost", Sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: #007B45 !important;
+    border-radius: 25px 25px 25px 25px;
+    padding: 0.75rem 10rem 0.75rem 10rem;
+    transition: all 0.5s ease 0s;
+}
+
+.btn-simular-credit:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.title-h1-credit {
+    width: 536px;
+    color: #111213;
+    font-family: "Jost", Sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+}
+
+/* .div-content-form {} */
+
+.div-content-select-type {
+    display: grid;
+    place-content: center;
+}
+
+.div-intern-select-type {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+#select-type-credit {
+    color: #666;
+    padding: 0.75em;
+    height: auto;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e2e8f0;
+    border-radius: 2px;
+    background: #F9FAFB;
+    box-shadow: none;
+    box-sizing: border-box;
+    transition: all .2s linear;
+    width: 536px;
+}
+
+.a-modalidades {
+    text-decoration: none;
+}
+
+#myCustomField:hover,
+#myCustomField:active,
+#myCustomField:focus {
+    outline: none;
+}
+
+#myCustomField {
+    width: 536px;
+    font-size: 60px;
+    color: #000000;
+    border: solid 0px transparent;
+    background: #F9FAFB;
+    border-color: transparent;
+}
+
+hr {
+    border: 1px solid #009C74;
+    width: 536px;
+}
+
+
+
+/*Estilos Modal*/
+
+.div-card {
+    display: none;
+}
+
+.div-card.display {
+    display: block;
+}
+
+button#close {
+    background-color: #007B45;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-size: 14px;
+    padding: 10px 25px;
+}
+
+button#close:hover {
+    cursor: pointer;
+}
+
+.modal-container {
+    display: flex;
+    background-color: rgb(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+}
+
+.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.modal {
+    background-color: #fff;
+    width: 600px;
+    max-width: 100%;
+    padding: 30px 50px;
+    border-radius: 25px;
+    box-shadow: 0 2px 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.modal h1 {
+    margin: 0;
+}
+
+.modal p {
+    opacity: 0.7;
+    font-size: 16px;
+}
+
+.h1-ventana-modal {
+    color: #000000;
+}
+
+.p-ventana-modal {
+    color: #000000;
+    padding: 2rem;
+}

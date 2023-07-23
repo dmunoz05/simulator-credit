@@ -1,0 +1,12 @@
+.btn-type-credit-result {
+    background-color: #00C771;
+    border: 1px solid transparent;
+}
+
+.btn-type-credit-result:hover,
+.btn-type-credit-result:active,
+.btn-type-credit-result:focus {
+    border: 1px solid transparent;
+    background-color: #00C771;
+    cursor: auto;
+}
