@@ -9,7 +9,7 @@ export const FecthTypesCreditProvider = ({ children }) => {
     const [totalData, setTotalData] = useState([]);
 
     useEffect(() => {
-        fetch('https://feinco.com.co/wp-json/custom-api/v1/types_credit')
+        fetch('https://feinco.com.co/wp-json/custom-api/v1/credit/')
             .then(response => response.json())
             .then(data => setTotalData(data))
             .catch(error => console.log('Error : ' + error));
