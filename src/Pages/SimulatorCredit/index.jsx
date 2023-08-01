@@ -17,7 +17,7 @@ const PopUp = (alert) => {
 				<button id="close">Cerrar</button>
 			</div>
 		</div>
-		`;       
+		`;
 
     return html;
 }
@@ -30,7 +30,7 @@ const createObject = (data, type) => {
 function SimulatorCredit() {
     const context = useContext(FecthTypesCreditContext);
     const navigate = useNavigate(); // Mover el hook useNavigate aquí
-    
+
     const [inputAmount, setInputAmount] = useState('$0');
     const [inputMoths, setInputMoths] = useState(0);
     const [inputTypeCredit, setInputTypeCredit] = useState();
@@ -96,6 +96,12 @@ function SimulatorCredit() {
         const valueConvert = convertInt(inputData.amount);
 
         const values = calculateCredit(parseFloat(inputData.rateMouth), parseFloat(inputData.rateYear), parseInt(inputData.months), valueConvert);
+
+        if (!values) {
+            validateMaxFields(inputData);
+            return;
+        }
+
         inputData.credit = values[0];
         inputData.dues.push(...values[1]);
 
@@ -109,6 +115,10 @@ function SimulatorCredit() {
     }
 
     function convertInt(data) {
+        if (data === "" || data === "$0" || data == 0) {
+            return 0;
+        }
+
         //Convertir int el valor de solicitud
         const amountString = data;
         const amountWithoutDots = amountString.replace(/\./g, ''); // Remueve los puntos
@@ -119,6 +129,10 @@ function SimulatorCredit() {
 
     //Calcular el crédito
     function calculateCredit(rateMount, rateYear, months, amount) {
+        if (months === 0 || amount === 0) {
+            return false;
+        }
+
         const totalInterestRate = rateMount / rateYear;
         const interest = (amount * totalInterestRate) / 100;
         const totalAmount = amount + interest;
@@ -187,7 +201,6 @@ function SimulatorCredit() {
 
     function validateMaxFields(inputData) {
         //Validar que no sobre pase los campos 
-        // const objectData = createObject(context.totalData, inputData.typeCredit);
 
         let amountMaxLabelInt = convertInt(amountMaxLabel);
         let monthsMaxLabelInt = convertInt(monthsMaxLabel);
@@ -200,6 +213,12 @@ function SimulatorCredit() {
         } else if (inputMonthsInt > monthsMaxLabelInt) {
             showModal('Debe de ingresar una cantidad de meses menor a el máximo estipulado');
             return false;
+        } else if (inputAmountInt == 0 && inputMonthsInt == 0 ){
+            showModal('Debe de ingresar un monto y una cantidad de meses');
+        } else if (inputAmountInt == 0) {
+            showModal('Debe de ingresar un monto');
+        } else if (inputMonthsInt == 0) {
+            showModal('Debe de ingresar una cantidad de meses');
         } else {
             return true;
         }
@@ -207,7 +226,7 @@ function SimulatorCredit() {
 
     function showModal(value) {
         const render = PopUp(value);
-        if(render){
+        if (render) {
             const body = document.querySelector('.content-card');
             body.innerHTML = render;
             const modal_container = document.getElementById('modal_container');
@@ -215,7 +234,7 @@ function SimulatorCredit() {
 
             const close = document.querySelector('#close');
             close.addEventListener('click', () => {
-                modal_container.classList.remove('show'); 
+                modal_container.classList.remove('show');
                 window.location.reload();
             });
         }
