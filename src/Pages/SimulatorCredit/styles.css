@@ -34,19 +34,13 @@ div {
 }
 
 .title-h1-credit {
-    width: 536px;
+    width: 55rem;
     color: #111213;
     font-family: "Jost", Sans-serif;
     font-size: 20px;
     font-weight: 600;
     line-height: 28px;
-}
-
-/* .div-content-form {} */
-
-.div-content-select-type {
-    display: grid;
-    place-content: center;
+    text-align: center;
 }
 
 .div-intern-select-type {
@@ -167,3 +161,35 @@ button#close:hover {
     color: #000000;
     padding: 2rem;
 }
+
+.content-card {
+    display: grid;
+    place-content: center;
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    border-radius: 0.5rem
+}
+
+.div-sub-content-form {
+    text-align: start;
+    place-content: center;
+    justify-content: center;
+    display: grid;
+}
+
+.div-content-select-type {
+    display: grid;
+    justify-content: center;
+    place-content: center;
+    text-align: center;
+}
+
+.div-principal-div {
+    display: grid;
+    place-content: center;
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    border-radius: 0.5rem;
+    width: 75rem;    
+}
+

@@ -30,7 +30,7 @@ const createObject = (data, type) => {
 function SimulatorCredit() {
     const context = useContext(FecthTypesCreditContext);
     const navigate = useNavigate(); // Mover el hook useNavigate aquí
-
+    
     const [inputAmount, setInputAmount] = useState('$0');
     const [inputMoths, setInputMoths] = useState(0);
     const [inputTypeCredit, setInputTypeCredit] = useState();
@@ -66,7 +66,6 @@ function SimulatorCredit() {
         setMonthsMaxLabel(object.term);
         calculateSMMLV(object.max_amount);
         uptadedRates(object);
-        console.log(object);
     };
 
     const uptadedRates = (obj) => {
@@ -220,12 +219,11 @@ function SimulatorCredit() {
                 window.location.reload();
             });
         }
-        // console.log(value);
     }
 
 
     return (
-        <div className='content-card grid place-content-center bg-white rounded-lg'>
+        <div className='content-card'>
             <div>
                 <h1 className='h1-simula-tu-credito'>Simula tu credito</h1>
             </div>
@@ -243,13 +241,13 @@ function SimulatorCredit() {
             <div className='div-content-form'>
                 {/* <form id="myForm" method="post" action="https://feinco.com.co/simula-tu-credito-resultado/"> */}
                 <form id="myForm" method="post">
-                    <div className='grid justify-center place-content-center text-start'>
+                    <div className='div-sub-content-form'>
                         <h1 className='title-h1-credit'>
                             ¿Qué modalidad de crédito va a solicitar?
                         </h1>
                     </div>
 
-                    <div className='div-content-select-type grid justify-center place-content-center text-start'>
+                    <div className='div-content-select-type'>
                         <div className='div-intern-select-type'>
                             <select id='select-type-credit' value={inputTypeCredit} onChange={handleTypeCreditChange}>
                                 <option>Seleccione...</option>
@@ -264,13 +262,13 @@ function SimulatorCredit() {
 
                     <br />
 
-                    <div className='grid justify-center place-content-center text-start'>
+                    <div className='div-intern-select-type'>
                         <h1 className='title-h1-credit'>
                             ¿Cuanto dinero quiere solicitar?
                         </h1>
                     </div>
 
-                    <div className='grid justify-center place-content-center text-center'>
+                    <div className='div-content-select-type'>
                         <input type="text" name="my_custom_field" id="myCustomField"
                             placeholder="$0" value={inputAmount} onChange={handleAmountChange} />
                         <hr />
@@ -280,13 +278,13 @@ function SimulatorCredit() {
                     <br />
                     <br />
 
-                    <div className='grid justify-center place-content-center text-start'>
+                    <div className='div-content-select-type'>
                         <h1 className='title-h1-credit'>
                             ¿A cuántos meses?
                         </h1>
                     </div>
 
-                    <div className='grid justify-center place-content-center text-center'>
+                    <div className='div-content-select-type'>
                         <input type="text" name="my_custom_field" id="myCustomField"
                             placeholder="0" value={inputMoths} onChange={handleMonthsChange} />
                         <hr />

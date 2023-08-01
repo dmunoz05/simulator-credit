@@ -10,3 +10,29 @@
     background-color: #00C771;
     cursor: auto;
 }
+
+.div-content-select-type {
+    display: grid;
+    justify-content: center;
+    place-content: center;
+    text-align: center;
+}
+
+.div-content-form-internt-two {
+    display: grid;
+    justify-content: center;
+    place-content: center;
+    text-align: center;
+}
+
+.div-content-form-internt {
+    display: grid;
+    justify-content: center;
+    place-content: center;
+    text-align: start;
+}
+
+.title-h1 {
+    font-weight: 400;
+    width: 75rem;
+}

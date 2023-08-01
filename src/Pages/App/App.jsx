@@ -60,7 +60,7 @@ const Home = () => {
           <button > Empezar </button>
         </Link>
         <p className='p-4'>
-          Edit and created for <code><a href='https://github.com/dmunoz05' >dmunoz05</a></code>
+          Edit and created for <code><a href='https://github.com/dmunoz05'> dmunoz05</a></code>
         </p>
       </div>
       <p className="read-the-docs">
