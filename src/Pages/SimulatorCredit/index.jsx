@@ -34,6 +34,7 @@ function SimulatorCredit() {
     const [inputAmount, setInputAmount] = useState('$0');
     const [inputMoths, setInputMoths] = useState(0);
     const [inputTypeCredit, setInputTypeCredit] = useState();
+    const [amountMinLabel, setAmountMinLabel] = useState("1.000.000");
     const [amountMaxLabel, setAmountMaxLabel] = useState();
     const [monthsMaxLabel, setMonthsMaxLabel] = useState();
     const [rateMouth, setRateMouth] = useState();
@@ -42,7 +43,6 @@ function SimulatorCredit() {
     const [dues, setDues] = useState();
 
     const handleAmountChange = (event) => {
-        debugger;
         let amount = event.target.value;
         if (amount.includes('$') && amount.includes('$0')) {
             amount = amount.replace('$0', '');
@@ -54,7 +54,11 @@ function SimulatorCredit() {
     };
 
     const handleMonthsChange = (event) => {
-        setInputMoths(event.target.value);
+        let month = event.target.value;
+        if (month.includes('0')){
+            month = month.replace('0', '');
+        }        
+        setInputMoths(month);
     };
 
     const handleTypeCreditChange = (event) => {
@@ -114,6 +118,16 @@ function SimulatorCredit() {
 
         if (!result) return;
 
+        debugger;
+        //Formatear monto crédtio
+        let amountFormated = inputData.amount;
+        let newAmountFormated = convertInt(amountFormated).toLocaleString('es-CO', {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+        });
+
+        inputData.amount = newAmountFormated;
+
         // Pasa los datos en la propiedad `state` del objeto de ubicación y redirige al usuario
         navigate('/simulador-de-credito-result', { state: inputData });
     }
@@ -140,7 +154,7 @@ function SimulatorCredit() {
         const totalInterestRate = rateMount / rateYear;
         const interest = (amount * totalInterestRate) / 100;
         const totalAmount = amount + interest;
-        const monthlyPaymentValue = totalAmount / months;
+        const monthlyPaymentValue = totalAmount;
         const formattedNumber = monthlyPaymentValue.toLocaleString('es-CO', {
             minimumFractionDigits: 3,
             maximumFractionDigits: 3,
@@ -205,13 +219,17 @@ function SimulatorCredit() {
 
     function validateMaxFields(inputData) {
         //Validar que no sobre pase los campos 
-
         let amountMaxLabelInt = convertInt(amountMaxLabel);
         let monthsMaxLabelInt = convertInt(monthsMaxLabel);
         let inputAmountInt = convertInt(inputData.amount);
         let inputMonthsInt = convertInt(inputData.months);
+        let amountMin = convertInt(amountMinLabel);
 
-        if (inputAmountInt > amountMaxLabelInt) {
+        if (inputAmountInt < amountMin) {
+            showModal("Debe de ingresar un monto mayor a el minimo estipulado");
+            return false;
+        }
+        else if (inputAmountInt > amountMaxLabelInt) {
             showModal("Debe de ingresar un monto menor a el máximo estipulado");
             return false;
         } else if (inputMonthsInt > monthsMaxLabelInt) {
@@ -297,7 +315,7 @@ function SimulatorCredit() {
                         <input type="text" name="my_custom_field" id="myCustomField"
                             placeholder="$0" value={inputAmount} onChange={handleAmountChange} />
                         <hr />
-                        <label id='monto-label' className='text-black text-start' >Monto Minimo: 1.000.000- Monto Maximo: {amountMaxLabel ? amountMaxLabel : '200.000.000'}</label>
+                        <label id='monto-label' className='text-black text-start' >Monto Minimo: <label>{amountMinLabel}</label> - Monto Maximo: {amountMaxLabel ? amountMaxLabel : '200.000.000'}</label>
                     </div>
 
                     <br />

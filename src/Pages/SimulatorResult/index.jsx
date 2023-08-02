@@ -3,8 +3,12 @@ import './styles.css';
 
 function SimulatorCreditResult() {
 
+    debugger;
+
     const location = useLocation();
     const inputData = location.state;
+
+    debugger;
 
     return (
         <div className='div-principal-div'>
@@ -34,7 +38,7 @@ function SimulatorCreditResult() {
                 </div>
 
                 <div className='div-content-form-internt-two'>
-                    <input type="text" name="my_custom_field" id="myCustomField" defaultValue={inputData.credit} />
+                    <input type="text" name="my_custom_field" id="myCustomField" defaultValue={inputData.amount} />
                 </div>
 
                 <br />
