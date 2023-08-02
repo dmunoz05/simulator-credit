@@ -42,8 +42,12 @@ function SimulatorCredit() {
     const [dues, setDues] = useState();
 
     const handleAmountChange = (event) => {
+        debugger;
         let amount = event.target.value;
-        if (amount.includes('$')) {
+        if (amount.includes('$') && amount.includes('$0')) {
+            amount = amount.replace('$0', '');
+        }
+        if (amount.includes('$') && !amount.includes('$0')) {
             amount = amount.replace('$', '');
         }
         setInputAmount(amount);
@@ -208,17 +212,20 @@ function SimulatorCredit() {
         let inputMonthsInt = convertInt(inputData.months);
 
         if (inputAmountInt > amountMaxLabelInt) {
-            showModal('Debe de ingresar un monto menor a el máximo estipulado');
+            showModal("Debe de ingresar un monto menor a el máximo estipulado");
             return false;
         } else if (inputMonthsInt > monthsMaxLabelInt) {
-            showModal('Debe de ingresar una cantidad de meses menor a el máximo estipulado');
+            showModal("Debe de ingresar una cantidad de meses menor a el máximo estipulado");
             return false;
-        } else if (inputAmountInt == 0 && inputMonthsInt == 0 ){
-            showModal('Debe de ingresar un monto y una cantidad de meses');
+        } else if (inputAmountInt == 0 && inputMonthsInt == 0) {
+            showModal("Debe de ingresar un monto y una cantidad de meses");
+            return false;
         } else if (inputAmountInt == 0) {
-            showModal('Debe de ingresar un monto');
+            showModal("Debe de ingresar un monto");
+            return false;
         } else if (inputMonthsInt == 0) {
-            showModal('Debe de ingresar una cantidad de meses');
+            showModal("Debe de ingresar una cantidad de meses");
+            return false;
         } else {
             return true;
         }
@@ -258,7 +265,6 @@ function SimulatorCredit() {
             </div>
 
             <div className='div-content-form'>
-                {/* <form id="myForm" method="post" action="https://feinco.com.co/simula-tu-credito-resultado/"> */}
                 <form id="myForm" method="post">
                     <div className='div-sub-content-form'>
                         <h1 className='title-h1-credit'>

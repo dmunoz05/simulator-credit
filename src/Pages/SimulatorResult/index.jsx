@@ -28,7 +28,7 @@ function SimulatorCreditResult() {
                 <br />
 
                 <div className='div-content-form-internt'>
-                    <h1 className='title-h1-credit font-normal'>
+                    <h1 className='title-h1-credit-two'>
                         Te prestamos:
                     </h1>
                 </div>
@@ -41,7 +41,7 @@ function SimulatorCreditResult() {
                 <br />
 
                 <div className='div-content-form-internt'>
-                    <h1 className='title-h1-credit'>
+                    <h1 className='title-h1-credit-two'>
                         Pagarás {inputData.dues.length ? inputData.dues.length : 'X'} cuotas mensuales por un valor aproximado de:
                     </h1>
                 </div>
@@ -53,26 +53,26 @@ function SimulatorCreditResult() {
                 <br />
                 <br />
 
-                <div className='grid justify-center place-content-center text-start'>
-                    <h1 className='title-h1-credit font-normal'>
+                <div className='div-content-form-internt'>
+                    <h1 className='title-h1-credit-two'>
                         Tasa*
                     </h1>
                 </div>
 
-                <div className='grid justify-center place-content-center text-center'>
-                    <span className='flex flex-row justify-around w-[35rem]'>
-                        <h1 className='title-h1-credit font-normal'>
+                <div className='div-content-form-internt-two '>
+                    <span className='span-text'>
+                        <h1 className='title-h1-credit-two'>
                             Tasa de interés mes vencido
                         </h1>
-                        <h1 className='title-h1-credit font-normal'>
+                        <h1 className='title-h1-credit-two'>
                             {inputData.rateMouth} % M.V
                         </h1>
                     </span>
-                    <span className='flex flex-row justify-around w-[35rem]'>
-                        <h1 className='title-h1-credit font-normal'>
+                    <span className='span-text'>
+                        <h1 className='title-h1-credit-two'>
                             Tasa de interés efectivo anual
                         </h1>
-                        <h1 className='title-h1-credit font-normal'>
+                        <h1 className='title-h1-credit-two'>
                             {inputData.rateYear} % E.A
                         </h1>
                     </span>
