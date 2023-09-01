@@ -1,4 +1,4 @@
-export const totalDataJson = (empty) => {
+export const dataJson = (empty) => {
     var json = [
         {
             "id": "1",

@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useState, useEffect, createContext } from 'react';
-import { totalDataJson } from '../data/index';
+import { dataJson } from '../data/index';
 
 export const FecthTypesCreditContext = createContext();
 
 export const FecthTypesCreditProvider = ({ children }) => {  
 
-    let data = totalDataJson("empty");
+    let data = dataJson("empty");
     const [totalData, setTotalData] = useState(data);
 
     useEffect(() => {
