@@ -3,12 +3,8 @@ import './styles.css';
 
 function SimulatorCreditResult() {
 
-    debugger;
-
     const location = useLocation();
     const inputData = location.state;
-
-    debugger;
 
     return (
         <div className='div-principal-div'>

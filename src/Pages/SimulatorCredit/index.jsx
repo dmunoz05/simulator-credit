@@ -118,7 +118,6 @@ function SimulatorCredit() {
 
         if (!result) return;
 
-        debugger;
         //Formatear monto crédtio
         let amountFormated = inputData.amount;
         let newAmountFormated = convertInt(amountFormated).toLocaleString('es-CO', {

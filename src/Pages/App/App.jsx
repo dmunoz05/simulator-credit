@@ -8,17 +8,6 @@ import reactLogo from '../../assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 
-// const AppRoutes = () => {
-//   let routes = useRoutes([
-//     { path: '/', element: <Home /> },
-//     { path: '/simulador-de-credito', element: <SimulatorCredit className='bg-white' /> },
-//     { path: '/simulador-de-credito-result', element: <SimulatorResult /> },
-//     { path: '/*', element: <NotFound /> },
-//   ]);
-
-//   return routes;
-// }
-
 const AppRoutes = () => {
   let routes = useRoutes([
     { path: '/', element: <Home /> },
