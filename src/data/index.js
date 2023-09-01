@@ -1,5 +1,5 @@
 export const totalDataJson = (empty) => {
-    var dataJson = [
+    var json = [
         {
             "id": "1",
             "title": "Ordinario 1",
@@ -147,5 +147,5 @@ export const totalDataJson = (empty) => {
 
 
 
-    return dataJson;
+    return json;
 }
